@@ -4,14 +4,14 @@ export default function Home() {
   return (
     <div className="relative min-h-screen bg-gray-100">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 h-16 grid grid-cols-12 items-center bg-white shadow-md p-4 z-10">
-          <div className="text-xl font-bold flex justify-start col-span-2">
+      <header className="fixed top-0 left-0 right-0 h-18 grid grid-cols-3 items-center bg-white shadow-md p-4 z-10">
+          <div className="text-xl font-bold flex justify-start">
               <Image src={`/perspective_logo.png`} alt={'Perspective'} width="40" height="40" />
           </div>
-          <h1 className="text-3xl font-extrabold leading-none tracking-tight text-gray-900 text-center col-span-8">
+          <h1 className="text-3xl font-extrabold leading-none tracking-tight text-gray-900 text-center">
               Funnel Preview
           </h1>
-          <div className="col-span-2 flex justify-end">
+          <div className="flex justify-end">
               <button className="px-4 py-2 bg-blue-500 text-white rounded-lg">Load a new file</button>
           </div>
       </header>
