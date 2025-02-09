@@ -2,11 +2,16 @@ import { useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { Funnel } from '../types/types';
 import { FunnelSchema } from '../schemas/schema';
+import { useAppContext } from '../context/AppContext';
 
 const DragToUpload: React.FC = () => {
 
     const [data, setData] = useState<Funnel | null>(null);
     const [error, setError] = useState<string | null>(null);
+
+    const {
+        setIsFileLoaded,
+    } = useAppContext();
 
     const onDrop = (acceptedFiles: File[]) => {
         setError(null);
@@ -18,8 +23,9 @@ const DragToUpload: React.FC = () => {
             try {
                 const json = JSON.parse(event.target?.result as string);
                 const parsedData = FunnelSchema.parse(json);
-                console.log("🟡 KOSEDEBUG: reader.onload -> parsedData", parsedData)
+                console.log('🟡 KOSEDEBUG: reader.onload -> parsedData', parsedData);
                 setData(parsedData);
+                setIsFileLoaded(true);
             } catch (err) {
                 setError('Invalid JSON file');
                 console.error(err);
@@ -44,7 +50,6 @@ const DragToUpload: React.FC = () => {
                 <p>Drag & drop a JSON file here, or click to select one</p>
             </div>
             {error && <p className="text-red-500">{error}</p>}
-            {data && <p className="text-green-500">File uploaded successfully!</p>}
         </div>
     );
 
