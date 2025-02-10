@@ -2,10 +2,13 @@ import { useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { FunnelSchema } from '../schemas/schema';
 import { useAppContext } from '../context/AppContext';
+import { BeakerIcon } from '@heroicons/react/24/solid';
+import { ArrowUpTrayIcon } from '@heroicons/react/24/solid';
 
 const DragToUpload: React.FC = () => {
 
     const [error, setError] = useState<string | null>(null);
+    const [isDragActive, setIsDragActive] = useState(false);
 
     const {
         setIsFileLoaded,
@@ -13,6 +16,7 @@ const DragToUpload: React.FC = () => {
     } = useAppContext();
 
     const onDrop = (acceptedFiles: File[]) => {
+        setIsDragActive(false);
         setError(null);
         const file = acceptedFiles[0];
         if (!file) return;
@@ -25,7 +29,7 @@ const DragToUpload: React.FC = () => {
                 setLoadedFunnel(parsedData);
                 setIsFileLoaded(true);
             } catch (err) {
-                setError('Invalid JSON file');
+                setError('The uploaded JSON doesn\'t match the required structure. Please try again with a different file.');
                 console.error(err);
             }
         };
@@ -33,21 +37,28 @@ const DragToUpload: React.FC = () => {
     };
 
     const { getRootProps, getInputProps } = useDropzone({
-        onDrop,
         accept: { 'application/json': ['.json'] },
         multiple: false,
+        onDragEnter: () => setIsDragActive(true),
+        onDragLeave: () => setIsDragActive(false),
+        onDrop,
     });
 
     return (
         <div className="flex flex-col items-center space-y-4 p-4">
             <div
                 {...getRootProps()}
-                className={ 'border-2 border-dashed p-6 rounded-lg cursor-pointer text-center w-full max-w-md hover:bg-gray-100 transition'}
+                className={`border-4 border-dashed p-12 rounded-lg cursor-pointer text-center w-full max-w-md transition
+                ${isDragActive ? 'bg-gray-50' : 'hover:bg-gray-50'}`}
             >
                 <input {...getInputProps()} />
-                <p>Drag & drop a JSON file here, or click to select one</p>
+                <div className='flex justify-center mb-4'>
+                    <ArrowUpTrayIcon className="size-8 text-gray-400" />
+                </div>
+                <p className='text-base'>Drag & drop your JSON file here, or click to select it</p>
             </div>
-            {error && <p className="text-red-500">{error}</p>}
+            {error
+             && <div className="w-full max-w-md p-4 mb-4 text-sm text-yellow-800 rounded-lg bg-yellow-50" role="alert">{error}</div>}
         </div>
     );
 
