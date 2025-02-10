@@ -39,7 +39,7 @@ const ButtonBlockSchema = BlockSharedSchema.extend({
 
 const BlockSchema = z.union([TextBlockSchema, ImageBlockSchema, ListBlockSchema, ButtonBlockSchema]);
 
-const PageSchema = z.object({
+export const PageSchema = z.object({
     id: z.string(),
     blocks: z.array(BlockSchema),
 });

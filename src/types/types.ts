@@ -1,7 +1,9 @@
 import { z } from 'zod';
-import { FunnelSchema } from '../schemas/schema';
+import { FunnelSchema, PageSchema } from '../schemas/schema';
 
 export type Funnel = z.infer<typeof FunnelSchema>;
+
+export type FunnelPage = z.infer<typeof PageSchema>;
 
 export type TAppContext = {
     isFileLoaded: boolean;

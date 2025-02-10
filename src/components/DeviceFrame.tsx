@@ -10,7 +10,7 @@ const DeviceFrame: React.FC<DeviceFrameProps> = ({ children }) => (
             <div className="absolute top-2.5 right-2 transform -translate-x-1/2 w-[10px] h-[10px] rounded-[10px] bg-white z-10"></div>
         </div>
         <div className="rounded-[2rem] overflow-hidden w-[375px] h-[690px] bg-white mt-8">
-            <div className="pl-6 pt-7 text-lg font-semibold">
+            <div className="pt-7 text-lg font-semibold">
                 {children}
             </div>
         </div>
