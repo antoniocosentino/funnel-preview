@@ -57,7 +57,7 @@ const DragToUpload: React.FC = () => {
                 <p className='text-base'>Drag & drop your JSON file here, or click to select it</p>
             </div>
             {error
-             && <div className="w-full max-w-md p-4 mb-4 text-sm text-yellow-800 rounded-lg bg-yellow-50" role="alert">{error}</div>}
+             && <div className="w-full max-w-md p-4 mb-4 text-base text-yellow-800 rounded-lg bg-yellow-50" role="alert">{error}</div>}
         </div>
     );
 

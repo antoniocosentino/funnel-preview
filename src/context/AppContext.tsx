@@ -8,15 +8,25 @@ const AppContext = createContext<TAppContext | undefined>(undefined);
 export function AppContextProvider({ children }: { children: ReactNode }) {
     const [isFileLoaded, setIsFileLoaded] = useState(false);
     const [loadedFunnel, setLoadedFunnel] = useState<Funnel | undefined>();
+    const [activePage, setActivePage] = useState(1);
 
     // TODO: maybe there's no need to have the boolean AND the data object
     // the data object could be the only source of truth
     // consider revisiting this part
 
     return (
-        <AppContext.Provider value={{
-            isFileLoaded, loadedFunnel, setIsFileLoaded, setLoadedFunnel,
-        }}>
+        <AppContext.Provider
+            value={
+                {
+                    isFileLoaded,
+                    loadedFunnel,
+                    activePage,
+                    setIsFileLoaded,
+                    setLoadedFunnel,
+                    setActivePage,
+                }
+            }
+        >
             {children}
         </AppContext.Provider>
     );
