@@ -7,8 +7,6 @@ type ButtonBlockProps = {
 
 const ButtonBlock: React.FC<ButtonBlockProps> = ({ block }) => {
 
-    console.log("🟡 KOSEDEBUG: block", block)
-
     return (
         <div>
             this is the button block renderer

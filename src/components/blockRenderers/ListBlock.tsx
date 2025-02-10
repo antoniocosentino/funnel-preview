@@ -7,8 +7,6 @@ type ListBlockProps = {
 
 const ListBlock: React.FC<ListBlockProps> = ({ block }) => {
 
-    console.log("🟡 KOSEDEBUG: block", block)
-
     return (
         <div>
             this is the list block renderer
