@@ -5,14 +5,14 @@ const BlockSharedSchema = z.object({
     type: z.enum(['text', 'list', 'button', 'image']),
 });
 
-const TextBlockSchema = BlockSharedSchema.extend({
+export const TextBlockSchema = BlockSharedSchema.extend({
     type: z.literal('text'),
     text: z.string(),
     color: z.string(),
     align: z.enum(['left', 'center', 'right']),
 });
 
-const ImageBlockSchema = BlockSharedSchema.extend({
+export const ImageBlockSchema = BlockSharedSchema.extend({
     type: z.literal('image'),
     alt: z.string().optional(),
     src: z.string(),
@@ -25,12 +25,12 @@ const ListItemSchema = z.object({
     src: z.string(),
 });
 
-const ListBlockSchema = BlockSharedSchema.extend({
+export const ListBlockSchema = BlockSharedSchema.extend({
     type: z.literal('list'),
     items: z.array(ListItemSchema),
 });
 
-const ButtonBlockSchema = BlockSharedSchema.extend({
+export const ButtonBlockSchema = BlockSharedSchema.extend({
     type: z.literal('button'),
     text: z.string(),
     color: z.string(),
