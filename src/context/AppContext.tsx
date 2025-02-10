@@ -11,7 +11,7 @@ export function AppContextProvider({ children }: { children: ReactNode }) {
 
     // TODO: maybe there's no need to have the boolean AND the data object
     // the data object could be the only source of truth
-    // keep this into account
+    // consider revisiting this part
 
     return (
         <AppContext.Provider value={{
