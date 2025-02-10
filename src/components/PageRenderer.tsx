@@ -3,7 +3,6 @@ import { FunnelPage } from '../types/types';
 import ImageBlock from './blockRenderers/ImageBlock';
 import TextBlock from './blockRenderers/TextBlock';
 import ButtonBlock from './blockRenderers/ButtonBlock';
-import { list } from 'postcss';
 import ListBlock from './blockRenderers/ListBlock';
 
 type PageRendererProps = {
