@@ -7,12 +7,14 @@ type PageRendererProps = {
 }
 
 const PageRenderer: React.FC<PageRendererProps> = ({ page, funnelBgColor }) => {
-    
-    console.log("🟡 KOSEDEBUG: page", page)
+
+    console.log('🟡 KOSEDEBUG: page', page);
 
     return (
         <div className={`bg-[${funnelBgColor.toLowerCase()}] p-4`}>
-            hello Im the page renderer
+            { page.blocks.map((block, index) => (
+                <div key={index}>{ block.type}</div>
+            )) }
         </div>
     );
 };
