@@ -17,17 +17,16 @@ const isUnsplashImage = (url: string): boolean => {
 
 const ImageBlock: React.FC<ImageBlockProps> = ({ block }) => {
 
-    // I only whitelisted the Unsplash domain in the Next config,
-    // therefore bailing out if the image is not hosted there.
-    // If we want to support ANY domain, then I should probably use a basic <img> tag here.
-    // But if it's safe to assume that all images will be on unsplash,
-    // then this should work just fine
+    // Bailing out if the image is not from unsplash.com,
+    // which is one of the whitelisted domains in the Next config.
+    // I'm assuming that all images for this module will come from there.
+    // (if that's not the case, probably a regular <img> tag should be used instead)
     if (!isUnsplashImage(block.src)){
         return null;
     }
 
     return (
-        <div>
+        <div className='m-2'>
             <Image
                 src={ block.src }
                 alt={ block.alt || 'Image from unsplash.com' }

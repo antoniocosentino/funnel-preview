@@ -12,7 +12,7 @@ const alignmentMap: Record<string, string> = {
 };
 
 const TextBlock: React.FC<TextBlockProps> = ({ block }) => (
-    <div className={`p-2 ${ alignmentMap[block.align] } text-2xl`}>
+    <div className={`m-2 p-2 ${ alignmentMap[block.align] } text-2xl`}>
         <span style={ { color: block.color } }>{ block.text }</span>
     </div>
 );
