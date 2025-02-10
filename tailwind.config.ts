@@ -14,6 +14,10 @@ export default {
             colors: {
                 background: 'var(--background)',
                 foreground: 'var(--foreground)',
+                perspectiveblue: {
+                    50: '#0071eb',
+                    100: '#0062cc',
+                },
             },
         },
     },

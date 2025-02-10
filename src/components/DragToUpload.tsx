@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { FunnelSchema } from '../schemas/schema';
 import { useAppContext } from '../context/AppContext';
-import { BeakerIcon } from '@heroicons/react/24/solid';
 import { ArrowUpTrayIcon } from '@heroicons/react/24/solid';
 
 const DragToUpload: React.FC = () => {

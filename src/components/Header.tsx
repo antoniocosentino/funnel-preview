@@ -22,7 +22,7 @@ const Header: React.FC = () => {
                         Funnel Preview
             </h1>
             <div className="flex justify-end">
-                { isFileLoaded && <button onClick={ onLoadNewFileClick } className="px-4 py-2 bg-blue-500 text-white rounded-lg">Load a new file</button> }
+                { isFileLoaded && <button onClick={ onLoadNewFileClick } className="px-4 py-2 bg-perspectiveblue-50 hover:bg-perspectiveblue-100 text-white rounded-lg font-semibold">Load a new file</button> }
             </div>
         </header>
     );
