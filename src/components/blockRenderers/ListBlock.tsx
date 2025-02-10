@@ -34,6 +34,7 @@ const ListBlock: React.FC<ListBlockProps> = ({ block }) => (
                             src={ item.src }
                             alt={ item.title }
                             fill={true}
+                            sizes="40px"
                         />
                     </div>
                     <div>
