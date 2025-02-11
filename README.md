@@ -1,40 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# 👁️ Funnel Preview
 
-## Getting Started
+This tool allows the user to upload a JSON file and be able to see and navigate a mobile preview of the funnel.
+The user can navigate through pages, in case the funnel contains multiple pages.
 
-First, run the development server:
+The tool is currently optimized for desktop. On mobile, a warning will be shown, informing the user that they need to switch to a desktop device.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Video Demo
+
+[insert video here]
+
+
+## How to run locally
+
+After cloning the project, install all the dependencies
+```
+yarn
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then start Next.js in developer mode:
+```
+yarn dev
+```
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Tests
+The project currently includes:
+- unit tests
+- component tests
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+For testing I'm using Jest in combination with Testing Library.
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Unit tests
+Unit tests are currently testing the following utilities:
+- `isAllowedDomain`: used to understand if the image belongs to a domain that is whitelisted in the Next.js config. This is useful in order to understand if we can use the `<Image />` component or we should rather fallback with a basic `<img>` tag (which is discouraged for performance reasons).
+- `parseFunnelJson`: this is used for parsing the uploaded JSON. The method throws an error in case the JSON is not matching our defined schema.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+### Component Tests
+I'm testing the individual renderer of each block type. In addition to that I'm also testing the `PageRenderer` which is the component that orchestrates which block component needs to be involved, based on the page structure
+- TextBlock.test.tsx
+- ButtonBlock.test.tsx
+- ImageBlock.test.tsx
+- ListBlock.test.tsx)
+- PageRenderer.test.tsx)
