@@ -37,8 +37,8 @@ Unit tests are currently testing the following utilities:
 
 ### Component Tests
 I'm testing the individual renderer of each block type. In addition to that I'm also testing the `PageRenderer` which is the component that orchestrates which block component needs to be involved, based on the page structure
-- TextBlock.test.tsx
-- ButtonBlock.test.tsx
-- ImageBlock.test.tsx
-- ListBlock.test.tsx)
-- PageRenderer.test.tsx)
+- `TextBlock.test.tsx`
+- `ButtonBlock.test.tsx`
+- `ImageBlock.test.tsx`
+- `ListBlock.test.tsx`
+- `PageRenderer.test.tsx`
