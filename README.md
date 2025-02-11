@@ -1,9 +1,9 @@
 # 👁️ Funnel Preview
 
-This web app allows the user to upload a JSON file and be able to see and navigate a mobile preview of the funnel.
-The user can navigate through pages, in case the funnel contains multiple pages.
+This web app allows the user to upload a JSON file and see a mobile preview of the funnel.
+The user can navigate through pages and scroll the content as in a real mobile device.
 
-The tool is currently optimized for desktop. On mobile, a warning will be shown, informing the user that they need to switch to a desktop device.
+The tool is currently only optimized for desktop. On mobile, a warning will be shown, informing the user that they need to switch to a desktop device.
 
 ## Video Demo
 
@@ -31,14 +31,19 @@ The project currently includes:
 For testing I'm using Jest in combination with Testing Library.
 
 ### Unit tests
-Unit tests are currently testing the following utilities:
+Unit tests are currently checking the following utilities:
 - `isAllowedDomain`: used to understand if the image belongs to a domain that is whitelisted in the Next.js config. This is useful in order to understand if we can use the `<Image />` component or we should rather fallback with a basic `<img>` tag (which is discouraged for performance reasons).
 - `parseFunnelJson`: this is used for parsing the uploaded JSON. The method throws an error in case the JSON is not matching our defined schema.
 
 ### Component Tests
-I'm testing the individual renderer of each block type. In addition to that I'm also testing the `PageRenderer` which is the component that orchestrates which block component needs to be involved, based on the page structure
+I'm testing the individual renderer of each block type. In addition to that, I'm also testing the `PageRenderer` which is the component that orchestrates which block component needs to be involved, based on the page structure
 - `TextBlock.test.tsx`
 - `ButtonBlock.test.tsx`
 - `ImageBlock.test.tsx`
 - `ListBlock.test.tsx`
 - `PageRenderer.test.tsx`
+
+
+### Online version
+The app is deployed via Vercel and can be accessed here:
+https://funnel-preview.vercel.app
