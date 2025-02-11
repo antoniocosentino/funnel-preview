@@ -10,10 +10,6 @@ export function AppContextProvider({ children }: { children: ReactNode }) {
     const [loadedFunnel, setLoadedFunnel] = useState<Funnel | undefined>();
     const [activePage, setActivePage] = useState(1);
 
-    // TODO: maybe there's no need to have the boolean AND the data object
-    // the data object could be the only source of truth
-    // consider revisiting this part
-
     return (
         <AppContext.Provider
             value={

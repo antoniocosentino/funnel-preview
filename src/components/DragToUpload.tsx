@@ -12,11 +12,13 @@ const DragToUpload: React.FC = () => {
     const {
         setIsFileLoaded,
         setLoadedFunnel,
+        setActivePage,
     } = useAppContext();
 
     const onDrop = (acceptedFiles: File[]) => {
         setIsDragActive(false);
         setError(null);
+        setActivePage(1);
         const file = acceptedFiles[0];
         if (!file) return;
 
