@@ -25,6 +25,6 @@ const PreviewMode: React.FC = () => {
             </DeviceFrame>
         </div>
     );
-}
+};
 
 export default PreviewMode;

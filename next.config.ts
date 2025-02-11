@@ -1,9 +1,11 @@
 import type { NextConfig } from 'next';
 
+export const ALLOWED_DOMAINS = ['images.unsplash.com', 'img.icons8.com'];
+
 const nextConfig: NextConfig = {
     reactStrictMode: true,
     images: {
-        domains: ['images.unsplash.com', 'img.icons8.com'],
+        domains: ALLOWED_DOMAINS,
     },
 };
 
