@@ -7,7 +7,7 @@ The tool is currently optimized for desktop. On mobile, a warning will be shown,
 
 ## Video Demo
 
-[insert video here]
+https://github.com/user-attachments/assets/ab9fa23b-7373-4bce-9e7f-549da32ebdb5
 
 
 ## How to run locally
