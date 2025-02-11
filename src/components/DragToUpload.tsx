@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { useDropzone } from 'react-dropzone';
-import { FunnelSchema } from '../schemas/schema';
 import { useAppContext } from '../context/AppContext';
 import { ArrowUpTrayIcon } from '@heroicons/react/24/solid';
+import { parseFunnelJson } from '../utilities/utils';
 
 const DragToUpload: React.FC = () => {
 
-    const [error, setError] = useState<string | null>(null);
+    const [error, setError] = useState<string | undefined>(undefined);
     const [isDragActive, setIsDragActive] = useState(false);
 
     const {
@@ -17,7 +17,7 @@ const DragToUpload: React.FC = () => {
 
     const onDrop = (acceptedFiles: File[]) => {
         setIsDragActive(false);
-        setError(null);
+        setError(undefined);
         setActivePage(1);
         const file = acceptedFiles[0];
         if (!file) return;
@@ -25,8 +25,7 @@ const DragToUpload: React.FC = () => {
         const reader = new FileReader();
         reader.onload = (event) => {
             try {
-                const json = JSON.parse(event.target?.result as string);
-                const parsedData = FunnelSchema.parse(json);
+                const parsedData = parseFunnelJson(event.target?.result as string);
                 setLoadedFunnel(parsedData);
                 setIsFileLoaded(true);
             } catch (err) {

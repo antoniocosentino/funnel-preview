@@ -1,4 +1,5 @@
-import { isAllowedDomain } from '../../src/utilities/utils';
+import { ZodError } from 'zod';
+import { isAllowedDomain, parseFunnelJson } from '../../src/utilities/utils';
 
 describe('isAllowedDomain', () => {
     test('Should return true for a URL in a whitelisted domain', () => {
@@ -14,5 +15,32 @@ describe('isAllowedDomain', () => {
 
         expect(result).toBe(false);
     });
+});
 
+
+describe('parseFunnelJson', () => {
+    test('Should parse the JSON if the structure is valid', () => {
+        const jsonString = '{"name":"My awesome funnel","bgColor":"#F5F5F5","pages":[{"id":"b6b05e20d3a1486585bb889b3c5b6e9f","blocks":[{"id":"b5e08d664867419a85c40d333ca4a00e","type":"text","text":"Welcome!","color":"#202020","align":"center"}]}]}';
+        const result = parseFunnelJson(jsonString);
+
+        expect(result.name).toBe('My awesome funnel');
+    });
+
+    test('Should throw if the JSON is corrupted', () => {
+        const jsonString = '{"name":"My awesome funnel","bgColor":"#F5F5F5","pages":[{"id":"b6b05e20d3a1486585bb889b3c5b6e9f","blocks":[}';
+
+        expect(() => parseFunnelJson(jsonString)).toThrow(SyntaxError);
+    });
+
+    test('Should throw if the JSON is valid, but a required property is missing', () => {
+        const jsonString = '{"name":"My awesome funnel","bgColor":"#F5F5F5","pages":[{"blocks":[{"id":"b5e08d664867419a85c40d333ca4a00e","type":"text","text":"Welcome!","color":"#202020","align":"center"}]}]}';
+
+        expect(() => parseFunnelJson(jsonString)).toThrow(ZodError);
+    });
+
+    test('Should throw if the JSON is valid, but we pass an unsupported value for the align property', () => {
+        const jsonString = '{"name":"My awesome funnel","bgColor":"#F5F5F5","pages":[{"id":"b6b05e20d3a1486585bb889b3c5b6e9f","blocks":[{"id":"b5e08d664867419a85c40d333ca4a00e","type":"text","text":"Welcome!","color":"#202020","align":"middle"}]}]}';
+
+        expect(() => parseFunnelJson(jsonString)).toThrow(ZodError);
+    });
 });
