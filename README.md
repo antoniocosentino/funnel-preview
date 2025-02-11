@@ -1,6 +1,6 @@
 # 👁️ Funnel Preview
 
-This tool allows the user to upload a JSON file and be able to see and navigate a mobile preview of the funnel.
+This web app allows the user to upload a JSON file and be able to see and navigate a mobile preview of the funnel.
 The user can navigate through pages, in case the funnel contains multiple pages.
 
 The tool is currently optimized for desktop. On mobile, a warning will be shown, informing the user that they need to switch to a desktop device.
@@ -25,8 +25,8 @@ yarn dev
 
 ## Tests
 The project currently includes:
-- unit tests
-- component tests
+- Unit tests
+- Component tests
 
 For testing I'm using Jest in combination with Testing Library.
 
