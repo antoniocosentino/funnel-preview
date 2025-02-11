@@ -19,7 +19,7 @@ const Header: React.FC = () => {
                 <Image src={'/perspective_logo.png'} alt={'Perspective'} width="40" height="40" />
             </div>
             <h1 className="text-3xl font-extrabold leading-none tracking-tight text-gray-900 text-center">
-                        Funnel Preview
+                Funnel Preview
             </h1>
             <div className="flex justify-end">
                 { isFileLoaded && <button onClick={ onLoadNewFileClick } className="px-4 py-2 bg-perspectiveblue-50 hover:bg-perspectiveblue-100 text-white rounded-lg font-semibold">Load a new file</button> }
