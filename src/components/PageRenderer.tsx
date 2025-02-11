@@ -19,7 +19,7 @@ const componentMap: Record<string, React.FC<any>> = {
 };
 
 const PageRenderer: React.FC<PageRendererProps> = ({ page, funnelBgColor }) => (
-    <div className='p-4 min-h-full' style={ { backgroundColor: funnelBgColor } }>
+    <div data-div-identifier='page-renderer-outer-div' className='p-4 min-h-full' style={ { backgroundColor: funnelBgColor } }>
         { page.blocks.map((block, index) => {
             const Component = componentMap[block.type];
 

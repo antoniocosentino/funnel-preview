@@ -40,4 +40,12 @@ describe('Should render the block elements in the page', () => {
         const imageElement = document.querySelector('img');
         expect(imageElement).toHaveAttribute('alt', 'An image element');
     });
+
+    test('The 3 blocks are rendered in the page', async () => {
+        render(<PageRenderer page={ baseMockProps } funnelBgColor={ 'gold' } />);
+
+        const wrappingDiv = document.querySelector('[data-div-identifier="page-renderer-outer-div"]');
+
+        expect(wrappingDiv).toHaveStyle('background-color: gold;');
+    });
 });
