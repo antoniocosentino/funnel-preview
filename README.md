@@ -32,7 +32,7 @@ For testing I'm using Jest in combination with Testing Library.
 
 ### Unit tests
 Unit tests are currently checking the following utilities:
-- `isAllowedDomain`: used to understand if the image belongs to a domain that is whitelisted in the Next.js config. This is useful in order to understand if we can use the `<Image />` component or we should rather fallback with a basic `<img>` tag (which is discouraged for performance reasons).
+- `isAllowedDomain`: used to understand if the image belongs to a domain that is whitelisted in the Next.js config.
 - `parseFunnelJson`: this is used for parsing the uploaded JSON. The method throws an error in case the JSON is not matching our defined schema.
 
 ### Component Tests
@@ -42,6 +42,13 @@ I'm testing the individual renderer of each block type. In addition to that, I'm
 - `ImageBlock.test.tsx`
 - `ListBlock.test.tsx`
 - `PageRenderer.test.tsx`
+
+---
+
+For running the tests:
+```
+yarn test
+```
 
 
 ### Online version

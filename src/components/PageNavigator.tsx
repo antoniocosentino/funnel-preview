@@ -19,7 +19,7 @@ const PageNavigator: React.FC = () => {
                     const isActive = !!(index + 1 === activePage);
 
                     return (
-                        <div onClick={ () => { setActivePage(index + 1); } } key={index} className={`flex max-w-xs p-2 rounded-md hover:bg-sky-100 cursor-pointer mb-2 shadow-sm ${ isActive ? 'bg-sky-100' : 'bg-gray-50' }`}>
+                        <div onClick={ () => { setActivePage(index + 1); } } key={index} className={`flex max-w-xs p-2 rounded-md hover:bg-sky-100 cursor-pointer mb-2 shadow-sm ${ isActive ? 'bg-sky-100' : 'bg-gray-50' } transition-all duration-300 ease-in-out`}>
                             <DocumentTextIcon className="size-5 text-perspectiveblue-50 ml-2 mr-2" />
                             <span className={ `text-sm ${ isActive ? 'font-semibold' : 'font-normal' }`}>Page { index + 1}</span>
                         </div>
