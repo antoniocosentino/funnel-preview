@@ -50,6 +50,8 @@ For running the tests:
 yarn test
 ```
 
+Tests are automatically executed as GitHub Actions on each push. You can view the test reports on the [actions](https://github.com/antoniocosentino/funnel-preview/actions) page
+
 
 ### Online version
 The app is deployed via Vercel and can be accessed here:
